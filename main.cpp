@@ -8,6 +8,10 @@
 #include "Patient.h"
 #include "Doctor.h"
 #include "Appointment.h"
+#include "crow.h"
+#include "json.hpp"
+#include "json.hpp"
+using json = nlohmann::json;
 
 // ================= SECURITY HELPERS =================
 void terminateOnError(const std::string& msg) {
