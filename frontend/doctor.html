@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Doctor Login</h2>
+  <form id="doctorLoginForm">
+    <input type="text" name="doctorId" placeholder="Doctor ID (101-105)" required><br>
+    <input type="password" name="password" placeholder="Password" required><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <div id="doctorDashboard" style="display:none;">
+    <h3>Doctor Dashboard</h3>
+    <button onclick="viewDoctorAppointments()">View My Appointments</button>
+    <button onclick="viewDoctorPrescriptions()">View My Prescriptions</button>
+    <button onclick="viewDoctorAnalytics()">View My Analytics</button>
+
+    <h3>Write Prescription</h3>
+    <form id="prescriptionForm">
+      <input type="text" name="patientId" placeholder="Patient ID" required><br>
+      <input type="text" name="doctorId" placeholder="Doctor ID" required><br>
+      <input type="text" name="medication" placeholder="Medication" required><br>
+      <input type="text" name="labTestOrder" placeholder="Lab Test (or None)" required><br>
+      <input type="text" name="followUpDate" placeholder="Follow-up Date (DD-MM-YYYY)" required><br>
+      <button type="submit">Submit Prescription</button>
+    </form>
+
+    <div id="doctorContent"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

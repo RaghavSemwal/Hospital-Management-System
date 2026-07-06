@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Lab Login</h2>
+  <form id="labLoginForm">
+    <input type="text" name="labId" placeholder="Lab Staff ID" required><br>
+    <input type="password" name="password" placeholder="Password" required><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <div id="labDashboard" style="display:none;">
+    <h3>Lab Dashboard</h3>
+    <button onclick="viewPendingLabOrders()">View Pending Lab Orders</button>
+    <button onclick="viewLabReports()">View Submitted Lab Reports</button>
+
+    <h3>Submit Lab Report</h3>
+    <form id="labReportForm">
+      <input type="text" name="patientId" placeholder="Patient ID" required><br>
+      <input type="text" name="findings" placeholder="Test Findings" required><br>
+      <button type="submit">Submit Report</button>
+    </form>
+
+    <div id="labContent"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
