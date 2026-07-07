@@ -2,3 +2,4 @@
 1002,102,Insulin Injection,Blood Sugar Test,15-07-2026
 1003,105,Physiotherapy Sessions,X-Ray Spine,20-07-20261004,102,Paracetamol 500mg,Serum Calcium Test,12-07-2026
 1004,102,Paracetamol 500mg,Serum Calcium Test,12-07-2026
+1005,105,Paracetamol 500mg,CBT,13-07-2026

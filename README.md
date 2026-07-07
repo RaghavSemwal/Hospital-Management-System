@@ -1,5 +1,6 @@
 # 🏥 Central HMS — Hospital Management System
 
+Created by Raghav Semwal , Abhishek Sharma and Simar Singh . 
 A lightweight hospital management system with three portals — **Patient**, **Doctor**, and **Lab** — backed by a C++ REST API ([Crow](https://github.com/CrowCpp/Crow) framework) and a plain HTML/CSS/JS frontend. Data is persisted in flat `.txt` (CSV-style) files, no database required.
 
 ---
@@ -35,7 +36,7 @@ A lightweight hospital management system with three portals — **Patient**, **D
     ├── appointments.txt     # appointmentId,patientId,doctorId,timeSlot,feePaid,status
     ├── prescriptions.txt    # patientId,doctorId,medication,labTestOrder,followUpDate
     ├── lab_staff.txt        # labId,name,password
-    └── lab_reports.txt      # patientId,findings,status
+    └── lab_reports.txt      # patientId, findings, status
 ```
 
 > **Note:** `main_server.cpp` expects the frontend files inside a `frontend/` folder next to the executable, and the six `.txt` data files in the same working directory as the executable. Adjust paths in `main_server.cpp` if your layout differs.
