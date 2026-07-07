@@ -116,4 +116,4 @@ The server starts on **http://localhost:18080**. Open that URL in a browser to r
 
 ## 📄 License
 
-Internal/educational project — add a license here if you plan to distribute it.
+Internal/educational project 
