@@ -1,42 +1,400 @@
+/* ============================================================
+   Central HMS — visual system
+   Palette: clinical mint background, deep teal primary,
+   portal accents borrowed from hospital ID-wristband colors
+   (green / blue / amber) since every part of this app revolves
+   around IDs — patient IDs, doctor IDs, appointment IDs.
+   Type: Poppins for headings (confident, rounded, clinical-modern),
+   Inter for body/UI (quiet, highly legible at small sizes).
+   ============================================================ */
+
+:root {
+  --bg: #F1F6F4;
+  --surface: #FFFFFF;
+  --ink: #17302B;
+  --muted: #5C7069;
+  --border: #E0E9E5;
+
+  --teal: #0E6B63;
+  --teal-dark: #0A4F49;
+
+  --patient: #2F9E5C;
+  --patient-soft: #E9F7EF;
+  --doctor: #2568A8;
+  --doctor-soft: #E9F1FB;
+  --lab: #C97A1E;
+  --lab-soft: #FBF1E3;
+
+  --danger: #C0392B;
+  --radius: 10px;
+  --shadow: 0 2px 10px rgba(23, 48, 43, 0.08);
+}
+
+* { box-sizing: border-box; }
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f0f2f5;
-  text-align: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
   margin: 0;
-  padding: 20px;
+  padding: 0 20px 60px;
+  line-height: 1.5;
+}
+
+/* ---------------- Top navigation bar ---------------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 18px 4px 0;
+}
+
+.brand {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.15em;
+  color: var(--teal-dark);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.topbar-tag {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.78em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.topbar-tag.patient-tag { background: var(--patient-soft); color: var(--patient); }
+.topbar-tag.doctor-tag  { background: var(--doctor-soft);  color: var(--doctor); }
+.topbar-tag.lab-tag     { background: var(--lab-soft);     color: var(--lab); }
+
+/* ---------------- Landing hero ---------------- */
+
+.landing-hero {
+  text-align: center;
+  padding: 44px 0 8px;
+}
+
+.landing-logo {
+  font-size: 2.6em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.landing-sub {
+  color: var(--muted);
+  font-size: 1.02em;
+  margin-top: -6px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
 }
 
 h1 {
-  margin-bottom: 30px;
+  text-align: center;
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
+
+h1::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  background: var(--teal);
+  border-radius: 2px;
+  margin: 14px auto 34px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 24px;
+}
+
+h3, h4 {
+  font-size: 1.15em;
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+/* ---------------- Landing page: portal wristband cards ---------------- */
 
 .portal-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 22px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .portal-card {
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 26px 24px;
   width: 250px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow);
+  border-left: 6px solid var(--muted);
+  text-align: left;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.portal-card.patient { border-top: 5px solid #4CAF50; }
-.portal-card.doctor { border-top: 5px solid #2196F3; }
-.portal-card.lab { border-top: 5px solid #FF9800; }
+.portal-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(23, 48, 43, 0.14);
+}
+
+.portal-card h2 { text-align: left; margin-bottom: 6px; font-size: 1.2em; }
+.portal-card p { color: var(--muted); font-size: 0.92em; margin: 0 0 16px; }
+.portal-icon { font-size: 1.8em; margin-bottom: 6px; }
+
+.portal-card.patient { border-left-color: var(--patient); }
+.portal-card.doctor  { border-left-color: var(--doctor); }
+.portal-card.lab     { border-left-color: var(--lab); }
 
 .btn {
   display: inline-block;
-  margin-top: 15px;
-  padding: 10px 15px;
-  background: #333;
+  padding: 10px 18px;
+  background: var(--teal);
   color: white;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.92em;
+  transition: background 0.15s ease;
 }
-.btn:hover {
-  background: #555;
+.btn:hover { background: var(--teal-dark); }
+
+/* ---------------- Forms ---------------- */
+
+form fieldset {
+  max-width: 480px;
+  margin: 0 auto 18px;
+  text-align: left;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--teal);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+
+form legend {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95em;
+  padding: 0 6px;
+  color: var(--teal-dark);
+}
+
+form fieldset input,
+form fieldset select {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 6px 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95em;
+  background: #FCFDFD;
+}
+
+form fieldset input:focus,
+form fieldset select:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(14, 107, 99, 0.15);
+}
+
+form fieldset label {
+  font-size: 0.93em;
+  display: block;
+  margin: 4px 0;
+}
+
+#slotOptions label {
+  background: #FCFDFD;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+button, .action-btn {
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+}
+
+button[type="submit"], #checkSlotsBtn, #confirmBookingBtn {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin: 10px auto 0;
+  padding: 12px;
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+button[type="submit"]:disabled {
+  background: #A9BDB8;
+  cursor: not-allowed;
+}
+
+button[type="submit"]:hover:not(:disabled), #checkSlotsBtn:hover, #confirmBookingBtn:hover:not(:disabled) {
+  background: var(--teal-dark);
+}
+
+#checkSlotsBtn {
+  width: auto;
+  display: inline-block;
+  margin: 8px 0 0;
+  padding: 8px 16px;
+  font-size: 0.9em;
+}
+
+/* ---------------- Dashboards & dashboard action buttons ---------------- */
+
+#doctorDashboard, #labDashboard {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.action-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+#doctorDashboard button:not([type="submit"]),
+#labDashboard button:not([type="submit"]) {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  padding: 9px 16px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  font-weight: 500;
+  margin: 4px 6px 4px 0;
+  transition: all 0.15s ease;
+}
+
+#doctorDashboard button:not([type="submit"]):hover {
+  border-color: var(--doctor);
+  color: var(--doctor);
+}
+
+#labDashboard button:not([type="submit"]):hover {
+  border-color: var(--lab);
+  color: var(--lab);
+}
+
+/* ---------------- Tables ---------------- */
+
+table {
+  border-collapse: collapse;
+  margin: 15px auto;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  font-size: 0.92em;
+}
+
+table th, table td {
+  border-bottom: 1px solid var(--border);
+  padding: 10px 16px;
+  text-align: left;
+}
+
+table th {
+  background: var(--teal);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+table tr:last-child td { border-bottom: none; }
+table tr:nth-child(even) td { background: #FAFCFB; }
+
+.muted-note {
+  color: var(--muted);
+  font-size: 0.88em;
+  max-width: 700px;
+  margin: 8px auto;
+  font-style: italic;
+}
+
+/* ---------------- Receipt (patient booking) ---------------- */
+
+#receipt {
+  max-width: 480px;
+  margin: 20px auto 0;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border-left: 6px solid var(--patient);
+}
+
+#receipt table { width: 100%; box-shadow: none; margin: 12px 0; }
+#receipt table th { background: var(--patient-soft); color: var(--ink); text-transform: none; font-size: 0.9em; }
+
+/* ---------------- Analytics stat cards ---------------- */
+
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 16px;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stat-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 16px 22px;
+  min-width: 150px;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--doctor);
+  text-align: left;
+}
+
+.stat-value {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.7em;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 0.82em;
+  margin-top: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }

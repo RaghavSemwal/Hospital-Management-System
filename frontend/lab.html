@@ -1,27 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Lab Portal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab Portal · Central HMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Lab Login</h2>
+  <header class="topbar">
+    <a href="index.html" class="brand">🏥 Central HMS</a>
+    <span class="topbar-tag lab-tag">Lab Portal</span>
+  </header>
+
+  <h2>🧪 Lab Login</h2>
   <form id="labLoginForm">
-    <input type="text" name="labId" placeholder="Lab Staff ID" required><br>
-    <input type="password" name="password" placeholder="Password" required><br>
-    <button type="submit">Login</button>
+    <fieldset>
+      <legend>Sign in</legend>
+      <input type="text" name="labId" placeholder="Lab Staff ID (e.g. L001)" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </fieldset>
   </form>
 
   <div id="labDashboard" style="display:none;">
     <h3>Lab Dashboard</h3>
-    <button onclick="viewPendingLabOrders()">View Pending Lab Orders</button>
-    <button onclick="viewLabReports()">View Submitted Lab Reports</button>
+    <div class="action-bar">
+      <button onclick="viewPendingLabOrders()">⏳ Pending Lab Orders</button>
+      <button onclick="viewLabReports()">📄 Submitted Lab Reports</button>
+      <button onclick="viewAllPatients('labContent')">🗂️ All Patient Records</button>
+    </div>
 
     <h3>Submit Lab Report</h3>
     <form id="labReportForm">
-      <input type="text" name="patientId" placeholder="Patient ID" required><br>
-      <input type="text" name="findings" placeholder="Test Findings" required><br>
-      <button type="submit">Submit Report</button>
+      <fieldset>
+        <legend>New report</legend>
+        <input type="text" name="patientId" placeholder="Patient ID" required>
+        <input type="text" name="findings" placeholder="Test Findings" required>
+        <button type="submit">Submit Report</button>
+      </fieldset>
     </form>
 
     <div id="labContent"></div>

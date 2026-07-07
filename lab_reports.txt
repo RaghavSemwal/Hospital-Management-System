@@ -1,3 +1,4 @@
 1002,Blood Sugar Test Result: 180 mg/dL,Complete
-1003,X-Ray Spine: Mild disc bulge,Complete
+1003,X-Ray Spine: Mild disc bulge,Complete1004,9.5 mg/dL,Complete
 
+1004,Total serum calcium :9.5 mg/dL,Complete

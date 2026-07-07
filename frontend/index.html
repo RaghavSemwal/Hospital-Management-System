@@ -1,23 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Hospital Management System</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Central HMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1> Central HMS Dashboard</h1>
+  <div class="landing-hero">
+    <div class="landing-logo">🏥</div>
+    <h1>Central HMS</h1>
+    <p class="landing-sub">One system for booking, care, and diagnostics</p>
+  </div>
+
   <div class="portal-container">
     <div class="portal-card patient">
+      <div class="portal-icon">📅</div>
       <h2>Patient Portal</h2>
-      <p>Register and book appointments</p>
+      <p>Register, pick a specialist, check slots, and pay</p>
       <a href="patient.html" class="btn">Enter</a>
     </div>
     <div class="portal-card doctor">
+      <div class="portal-icon">🩺</div>
       <h2>Doctor Portal</h2>
-      <p>Login and manage prescriptions</p>
+      <p>Login, manage your queue, and write prescriptions</p>
       <a href="doctor.html" class="btn">Enter</a>
     </div>
     <div class="portal-card lab">
+      <div class="portal-icon">🧪</div>
       <h2>Lab Portal</h2>
       <p>Login and submit lab reports</p>
       <a href="lab.html" class="btn">Enter</a>
